@@ -26,7 +26,7 @@ def solution_valid(board):
             squares[board[new_i][new_j]] += 1
 
     for i in range(1, 10):
-        if columns[i]!=9 or columns[i]!=9 or squares[i]!=9:
+        if rows[i]!=9 or columns[i]!=9 or squares[i]!=9:
            return False
             
     return True
