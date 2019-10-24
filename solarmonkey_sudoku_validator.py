@@ -17,17 +17,29 @@ def solution_valid(board):
     rows = defaultdict(int)
     columns = defaultdict(int)
     squares = defaultdict(int)
+
     for i in range(9):
+        rows.clear()
+        columns.clear()
+        squares.clear()
+
         for j in range(9):
-            columns[board[i][j]] += 1
-            rows[board[j][i]] += 1
+            if board[i][j] is not None:
+                columns[board[i][j]] += 1
+                if columns[board[i][j]]>1:
+                    return False
+            
+            if board[j][i] is not None:
+                rows[board[j][i]] += 1
+                if rows[board[j][i]]>1:
+                    return False
+
             new_j = (i*3 + j%3)%9
             new_i = (i//3)*3 + j//3
-            squares[board[new_i][new_j]] += 1
-
-    for i in range(1, 10):
-        if rows[i]!=9 or columns[i]!=9 or squares[i]!=9:
-           return False
+            if squares[board[new_i][new_j]] is not None:
+                squares[board[new_i][new_j]] += 1
+                if squares[board[new_i][new_j]]>1:
+                    return False
             
     return True
    
