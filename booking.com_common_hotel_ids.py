@@ -1,4 +1,7 @@
 '''
+Booking.com Interview Question for Software Engineer / Developers
+
+https://www.careercup.com/question?id=5664081785651200
 
 Given arrays for N (>=2) users, each representing the IDs of hotels visited, 
 find the common IDs of the hotels visited amongst the users.

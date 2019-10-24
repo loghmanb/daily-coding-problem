@@ -1,6 +1,8 @@
 '''
 Bloomberg LP Interview Question for Software Engineer Interns
 
+https://www.careercup.com/question?id=5071329456291840
+
 Find the two elements that have the smallest difference in a given array.
 
 '''
