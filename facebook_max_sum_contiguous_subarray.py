@@ -38,7 +38,7 @@ Explanation 2:
 '''
 
 
-def maxSubArray(self, A):
+def maxSubArray(A):
     if not A: return
     
     max_subA = A[0]
@@ -56,7 +56,7 @@ def maxSubArray(self, A):
 
 
 if __name__=='__main__':
-    d = [
+    data = [
         [[1, 2, 3, 4, -10], 10],
         [[-2, 1, -3, 4, -1, 2, 1, -5, 4], 6]
     ]
