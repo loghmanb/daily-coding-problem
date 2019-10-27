@@ -41,28 +41,25 @@ Output 2:
 Explanation 2:
     The three sub-arrays are [10], [2, 3], [100].
     The answer is [100] as its sum is larger than the other two.
-    
+
 '''
 
-class Solution:
-    # @param A : list of integers
-    # @return a list of integers
-    def maxset(self, A):
-        l = []
-        pre_l = []
-        m = -1
-        pre_val = 0
-        for i,x in enumerate(A):
-            if x<0:
-                pre_val = 0
-                pre_l = []
-            else:
-                pre_val += x
-                if pre_val>m:
-                    m = pre_val
-                    l = pre_l
-                pre_l.append(x)
-        return l
+def maxset(A):
+    l = []
+    pre_l = []
+    m = -1
+    pre_val = 0
+    for i,x in enumerate(A):
+        if x<0:
+            pre_val = 0
+            pre_l = []
+        else:
+            pre_val += x
+            if pre_val>m:
+                m = pre_val
+                l = pre_l
+            pre_l.append(x)
+    return l
 
 
 if __name__=='__main__':
@@ -71,4 +68,4 @@ if __name__=='__main__':
     ]
     
     for d in data:
-        print('input': d[0], 'output', Solution(d[0]))
+        print('input', d[0], 'output', maxset(d[0]))
