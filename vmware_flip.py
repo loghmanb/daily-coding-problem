@@ -36,6 +36,9 @@ If S = 111
 No operation can give us more than three 1
 '''
 
+def cmp_lexicographically(a0, a1, b0, b1):
+    return (10*a0+a1) > (10*b0+b1)
+
 # @param A : string
 # @return a list of integers
 def flip(A):
@@ -54,7 +57,7 @@ def flip(A):
             val += 1
             if max_zero<=val:
                 #check the lexicographically smallest pair or making better answer
-                if (ans[0]*10+ans[1])>(10*(start+1)+(i+1)) or (max_zero<val):
+                if cmp_lexicographically(ans[0], ans[1], start+1, i+1) or (max_zero<val):
                     ans = [start+1, i+1]
                 max_zero = val
 
