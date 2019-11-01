@@ -25,7 +25,7 @@ def hackerlandRadioTransmitters(houses, k):
 
     houses = sorted(houses)
     target_house = houses[0]
-    
+
     for i in range(1, n):
         if houses[i]-target_house>2*k:
             no_of_transmitter += 1
@@ -47,10 +47,10 @@ def hackerlandRadioTransmitters(houses, k):
 
 if __name__ == '__main__':
     data = [
-            [([9, 5, 4, 2, 6, 15, 12], 2), ],
+            [([9, 5, 4, 2, 6, 15, 12], 2), 4],
             [([2, 5], 2), 2],
             [([1, 2, 3, 4, 5], 1), 2],
             [([1, 2, 3, 5, 9], 1.3), 3],
             ]
     for d in data:
-        print('houses at ', d[0][0], ' with transmission range ', d[0][1], ', so minimum no of transmitters is ', hackerlandRadioTransmitters(*d[0]))
+        print('houses at', d[0][0], ' with transmission range', d[0][1], ', so minimum no of transmitters is', hackerlandRadioTransmitters(*d[0]), 'expected', d[1])
