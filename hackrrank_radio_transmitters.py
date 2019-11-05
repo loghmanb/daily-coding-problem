@@ -16,27 +16,41 @@ antennae at houses 2 and 5 and 9 would provide complete coverage. There is no ho
 to cover both 5 and 9. Ranges of coverage, are [1, 2, 3], [5], and [9].
 '''
 
-def hackerlandRadioTransmitters(x, k):
-    if not x: return 0
+def hackerlandRadioTransmitters(houses, k):
+    if not houses: return 0
 
-    x = sorted(x)
-    t = []
+    no_of_transmitter = 1
+    found_new_group = True
+    n = len(houses)
 
-    for i,h in enumerate(x):
-        if not t or abs(t[-1]-h)>k:
-            h1 = h
-            for j in range(i+1, len(x)):
-                if x[j]>h+k:
-                    h1 = x[j-1]
-                    break
-            t.append(h1)
+    houses = sorted(houses)
+    target_house = houses[0]
+
+    for i in range(1, n):
+        if houses[i]-target_house>2*k:
+            no_of_transmitter += 1
+            target_house = houses[i]
+            found_new_group = True
+        elif houses[i]-target_house>k:
+            if found_new_group:
+                target_house = houses[i-1]
+                if houses[i]-target_house<=k:
+                    found_new_group = False
+                    continue
+            
+            no_of_transmitter += 1
+            target_house = houses[i]
+            found_new_group = True
     
-    return len(t)
+    return no_of_transmitter
 
 
 if __name__ == '__main__':
     data = [
-            ([1, 2, 3, 5, 9], 1.3),
+            [([9, 5, 4, 2, 6, 15, 12], 2), 4],
+            [([2, 5], 2), 2],
+            [([1, 2, 3, 4, 5], 1), 2],
+            [([1, 2, 3, 5, 9], 1.3), 3],
             ]
     for d in data:
-        print('houses at ', d[0], ' with transmission range ', d[1], ', so minimum no of transmitters is ', hackerlandRadioTransmitters(*d))
+        print('houses at', d[0][0], ' with transmission range', d[0][1], ', so minimum no of transmitters is', hackerlandRadioTransmitters(*d[0]), 'expected', d[1])
