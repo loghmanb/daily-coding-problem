@@ -1,8 +1,10 @@
 '''
+https://www.interviewbit.com/problems/pascal-triangle/
+
 Pascal Triangle
-Asked in:  
-Google
-Amazon
+
+Asked in: Google, Amazon
+
 Given numRows, generate the first numRows of Pascal’s triangle.
 
 Pascal’s triangle : To generate A[C] in row R, sum up A’[C] and A’[C-1] from previous row R - 1.
