@@ -1,9 +1,9 @@
 '''
 Rotate Matrix
-Asked in:  
-Google
-Facebook
-Amazon
+Asked in: Google, Facebook, Amazon
+
+https://www.interviewbit.com/problems/rotate-matrix/
+
 You are given an n x n 2D matrix representing an image.
 
 Rotate the image by 90 degrees (clockwise).
