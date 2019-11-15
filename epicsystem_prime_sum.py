@@ -28,7 +28,7 @@ Solved by interviewbit.com
 
 # @param A : integer
 # @return a list of integers
-def primesum(self, A):
+def primesum(A):
     prime_no = [True]*(A+1)
     prime_no[0], prime_no[1] = False, False
         
