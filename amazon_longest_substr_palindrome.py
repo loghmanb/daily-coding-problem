@@ -36,13 +36,14 @@ def longestPalindromeSubstring(S):
         table[i][i] = True
         if i<N-1:
             #Check for two characters
-            if table[i][i]==table[i][i+1]:
+            if S[i]==S[i+1]:
+                table[i][i+1] = True
                 start = i
                 maxLen = 2
 
     #Check for 3 and more charachters
     for k in range(3, N+1):
-        for i in range(N-k+1):
+        for i in range(N+1-k):
             #find mirror position of i
             j = i + k - 1
             #str[i:j] is palindarome if str[i+1:j-1] is palindarome and str[i] is equal to str[j]
@@ -54,8 +55,10 @@ def longestPalindromeSubstring(S):
     
     return maxLen
 
+
 if __name__ == "__main__":
      data = [
+             ['baab', 4],
              ['aabcdcb', 5]   
      ]
 

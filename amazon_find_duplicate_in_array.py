@@ -27,6 +27,17 @@ def repeatedNumber(A):
         pos[x] = True
     return -1
 
+# @param A : tuple of integers
+# @return an integer
+def repeatedNumber2(A):
+    for i,x in enumerate(A):
+        if x!=(i+1):
+            if A[x-1]!=x:
+                A[x-1], A[i] = x, A[x-1]
+            else:
+                return x
+    return -1
+
 
 if __name__ == "__main__":
     data = [
@@ -34,4 +45,4 @@ if __name__ == "__main__":
         ]
 
     for d in data:
-        print('input', d[0], 'output', repeatedNumber(d[0]))
+        print('input', d[0], 'output1', repeatedNumber(d[0]), 'output2', repeatedNumber2(d[0]))
