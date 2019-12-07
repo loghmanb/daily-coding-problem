@@ -58,7 +58,16 @@ def find_kth_smallest(arr, k, start=None, end=None):
         return find_kth_smallest(arr, k, start=p, end=end)
 
 
+#solution by using heap
+import heapq
 
+def find_kth_smallest_heap(arr, k):
+    mem = arr[:k]
+    heapq._heapify_max(mem)
+    for i in range(k, len(arr)):
+        if arr[k]<mem[0]:
+            heapq._heapreplace_max(mem, arr[k])
+    return mem[0]
 
 if __name__ == "__main__":
     data = [
@@ -66,4 +75,4 @@ if __name__ == "__main__":
     ]
 
     for d in data:
-        print('input', d[0], 'output', find_kth_smallest(*d[0]))
+        print('input', d[0], 'output#1', find_kth_smallest(*d[0]), 'output#2', find_kth_smallest_heap(*d[0]))
