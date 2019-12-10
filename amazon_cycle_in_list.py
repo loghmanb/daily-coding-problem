@@ -29,11 +29,9 @@ class ListNode:
 # @param A : head node of linked list
 # @return the first node in the cycle in the linked list
 def detectCycle(A):
-    pre_node = None
     node = A
     while node and node.val>0:
         node.val = -node.val
-        pre_node = node
         node = node.next
     if node: node.val = -node.val
     return node
