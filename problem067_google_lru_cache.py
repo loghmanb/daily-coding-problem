@@ -42,7 +42,7 @@ class LinkedList:
         self.size += 1
         return node
 
-    def remove_from_tail():
+    def remove_from_tail(self):
         node = self.last_node
         self.last_node = self.last_node.back
         if self.last_node is not None:
@@ -76,7 +76,7 @@ class LRUCache:
         self.mem = LinkedList()
         self.mem_key = {}
 
-    def set(key, value):
+    def set(self, key, value):
         node = self.mem_key.get(key)
         if node is None:
             if len(self.mem)>=self.size:
