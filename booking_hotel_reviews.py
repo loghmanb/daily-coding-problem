@@ -1,8 +1,9 @@
 '''
 Hotel Reviews
-Asked in:  
-Booking.com
-Problem Setter: ishubansal Problem Tester: raghav_aggiwal
+Asked in: Booking.com
+
+https://www.interviewbit.com/problems/hotel-reviews/
+
 Given a set of reviews provided by the customers for different hotels and a string containing “Good Words”, you need to sort the reviews in descending order according to their “Goodness Value” (Higher goodness value first). We define the “Goodness Value” of a string as the number of “Good Words” in that string.
 
 Note: Sorting should be stable. If review i and review j have the same “Goodness Value” then their original order would be preserved.
@@ -37,4 +38,26 @@ Output:
 ans = [2, 0, 1]
 Here, sorted reviews are ["cool_wifi_speed", "water_is_cool", "cold_ice_drink"]
 '''
+
+def solve(S, R):
+    S = dict.fromkeys(S.split('_'), True)
+    ans = []
+    for i, review in enumerate(R):
+        score = 0
+        for key in review.split('_'):
+            if key in S:
+                score += 1
+        ans.append([score, i])
+    ans.sort(key= lambda x:x[0], reverse=True)
+    return list(map(lambda x:x[1], ans))
+
+if __name__ == "__main__":
+    data = [
+            [
+                ["cool_ice_wifi", ["water_is_cool", "cold_ice_drink", "cool_wifi_speed"]],
+                [2, 0, 1],
+            ]
+    ]
+    for d in data:
+        print('input', d[0], 'output', solve(*d[0]))
 
