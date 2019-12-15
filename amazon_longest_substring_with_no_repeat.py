@@ -19,19 +19,21 @@ For "bbbbb" the longest substring is "b", with the length of 1.
 def lengthOfLongestSubstring(A):
     if not A: return 0
         
-    start = 0
-    max_len = 0
-    chars = {}
-    for i,ch in enumerate(A):
-        if ch not in chars or chars[ch]<start:
-            l = i-start+1
-            if max_len<l:
-                max_len = l
+    result = 0
+    letters = set()
+    N = len(A)
+    i = j = 0
+        
+    while i<N and j<N:
+        if A[j] in letters:
+            letters.remove(A[i])
+            i += 1
         else:
-            start = chars[ch]+1
-        chars[ch] = i
+            letters.add(A[j])
+            j += 1
+            result = max(result, j-i)
                 
-    return max_len
+    return result
 
 
 if __name__ == "__main__":
