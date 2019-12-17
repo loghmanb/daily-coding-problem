@@ -38,7 +38,7 @@ def knight_tours(N):
     return board
 
 def print_board(board):
-    for i in range(board):
+    for i in range(len(board)):
         print(board[i])
 
 if __name__ == "__main__":
