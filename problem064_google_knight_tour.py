@@ -8,7 +8,7 @@ Given N, write a function to return the number of knight's tours on an N by N ch
 Solution from https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
 '''
 
-moves = set([(1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1), (-2, 1), (-1, 2)])
+moves = ((1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1), (-2, 1), (-1, 2))
  
 def is_valid_move(board, i, j, mov):
     N = len(board)
