@@ -22,11 +22,12 @@ Reference: https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome
   
 # A DP function to find minimum number 
 # of insertions 
-def findMinInsertionsDP(str1, n): 
-  
+def findMinInsertionsDP(str1):
+
     # Create a table of size n*n. table[i][j] 
     # will store minimum number of insertions  
     # needed to convert str1[i..j] to a palindrome. 
+    n = len(str1)
     table = [[0 for i in range(n)]  
                 for i in range(n)] 
     l, h, gap = 0, 0, 0
@@ -38,10 +39,16 @@ def findMinInsertionsDP(str1, n):
             if str1[l] == str1[h]: 
                 table[l][h] = table[l + 1][h - 1] 
             else: 
-                table[l][h] = (min(table[l][h - 1],  
-                                   table[l + 1][h]) + 1) 
+                table[l][h] = min(table[l][h - 1], table[l + 1][h]) + 1
             l += 1
   
     # Return minimum number of insertions  
     # for str1[0..n-1] 
-    return table[0][n - 1]; 
+    return table[0][n - 1]
+
+if __name__ == "__main__":
+    data = [
+            ['google', 2]
+    ]
+    for d in data:
+        print('input', d[0], 'output', findMinInsertionsDP(d[0]))
