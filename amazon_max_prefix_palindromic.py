@@ -41,11 +41,12 @@ def solve(A):
     ans = 0
     start = 0
     for i in range(N):
-        if start>=N-i-1:
+        end = N-i-1
+        if start>=end:
             break
-        if A[N-i-1]!=A[start]:
+        if A[end]!=A[start]:
             if start>0:
-                if A[N-i-1]==A[0]:
+                if A[end]==A[0]:
                     start = 1
                     ans = i
                     continue
@@ -58,6 +59,7 @@ def solve(A):
 
 if __name__ == "__main__":
     data = [
+            ['google', 2],
             ['ABC', 2],
             ['ABBABBA', 0],
     ]
