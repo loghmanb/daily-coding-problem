@@ -16,7 +16,7 @@ Solved by dynamic programming or recursive functions
 if S is palindarome so reteurn len of S
 else check for S[1:] or S[:-1]
 
-if len of S is equal 1 so return 1 (because of each character is palaindarome)
+if len of S is equal 1 so return 1 (because of each character is palindarome)
 if len of S is equal 2 and S[0]==S[1] return 2 
 
 '''
