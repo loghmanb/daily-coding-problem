@@ -48,7 +48,9 @@ def findMinInsertionsDP(str1):
 
 if __name__ == "__main__":
     data = [
-            ['google', 2]
+            ['mom', 0],
+            ['google', 2],
+            ['panama', 3],
     ]
     for d in data:
         print('input', d[0], 'output', findMinInsertionsDP(d[0]))
