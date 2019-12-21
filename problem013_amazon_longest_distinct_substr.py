@@ -5,8 +5,11 @@ Given an integer k and a string s, find the length of the longest substring that
 contains at most k distinct characters.
 For example, given s = "abcba" and k = 2, the longest substring with k distinct
 characters is "bcb".
+
+
 '''
 
+# It has been already solved in https://github.com/loghmanb/daily-coding-problem/blob/master/amazon_longest_substring_with_no_repeat.py with better approach
 
 def longest_substr(s, k):
     def long_substr(s, k, l=[]):
