@@ -23,10 +23,10 @@ A
 Should return null, since we have an infinite loop.
 '''
 
-def graphMaxValue(labels, path):
+def graphMaxValue(labels, edges):
     graph = {}
     dests = set()
-    for (src, dest) in path:
+    for (src, dest) in edges:
         if src not in graph:
             graph[src] = set([dest])
         else:
@@ -38,9 +38,9 @@ def graphMaxValue(labels, path):
             srcs.add(src)
     
     maxVal = 0
-    path = [ [{}, src] for src in srcs]
-    while path:
-        item = path.pop()
+    edges = [ [{}, src] for src in srcs]
+    while edges:
+        item = edges.pop()
         if item[1] is None:
             max_label_occ = max(item[0].values())
             if maxVal<max_label_occ:
@@ -52,8 +52,8 @@ def graphMaxValue(labels, path):
                     label_occ[labels[item[1]]] += 1
                 else:
                     label_occ[labels[item[1]]] = 1
-                path.append([label_occ, node])
-    return maxVal
+                edges.append([label_occ, node])
+    return maxVal or None
 
 
 if __name__ == "__main__":
