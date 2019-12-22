@@ -47,8 +47,21 @@ Explanation 2:
     
     The number of ways decoding "12" is 2.
 
-Solved by interviewbit.com
+DP version solved by interviewbit.com
 '''
+
+def numDecodings_recursive(A):
+    if not A or A[0]=='0':
+        return 0
+    elif len(A)==1:
+        return 1
+    elif len(A)==2:
+        return int(A)<=26 and 2 or 1
+    ans = numDecodings_recursive(A[1:])
+    if numDecodings_recursive(A[:2]):
+        ans += numDecodings_recursive(A[2:])
+    return ans
+
 
 # @param A : string
 # @return an integer
@@ -56,22 +69,22 @@ def numDecodings(A):
     d = [0]*(len(A)+1)
     d[0] = d[1] = 1
     for i in range(1,len(A)):
-        g = int(A[i-1]+A[i])
-        if A[i]=='0' and(g!=10 and g!=20) :
+        no = int(A[i-1]+A[i])
+        if A[i]=='0' and(no!=10 and no!=20) :
             return 0
-        elif g==10 or g==20 :
-            d[i+1]=d[i-1]
-        elif g>10 and g<=26 :
-            d[i+1]=d[i]+d[i-1]
+        elif no==10 or no==20 :
+            d[i+1] = d[i-1]
+        elif no>10 and no<=26 :
+            d[i+1] = d[i]+d[i-1]
         else: 
-            d[i+1]=d[i]
+            d[i+1] = d[i]
     return d[-1]
 
 
 if __name__ == "__main__":
     data = [
-            ['12132112', 25]
+            ['1213', 25]
     ]
     for d in data:
-        print('input', d[0], 'output', numDecodings(d[0]))
+        print('input', d[0], 'output#1', numDecodings(d[0]), 'output#2', numDecodings_recursive(d[0]))
 
