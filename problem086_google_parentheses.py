@@ -9,7 +9,7 @@ For example, given the string "()())()", you should return 1. Given the string "
 def noOfWrongParentheses(string):
     ans = 0
     balance = 0
-    for i,ch in enumerate(string):
+    for ch in string:
         if ch=='(':
             balance += 1
         elif ch==')':
