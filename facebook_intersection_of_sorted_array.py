@@ -1,8 +1,7 @@
 '''
 Intersection Of Sorted Arrays
-Asked in:  
-Facebook
-Google
+Asked in: Facebook, Google
+
 Find the intersection of two sorted arrays.
 OR in other words,
 Given 2 sorted arrays, find all the elements which occur in both the arrays.

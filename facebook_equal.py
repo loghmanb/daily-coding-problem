@@ -4,7 +4,8 @@ Asked in: Facebook
 
 https://www.interviewbit.com/problems/equal/
 
-Given an array A of integers, find the index of values that satisfy A + B = C + D, where A,B,C & D are integers values in the array
+Given an array A of integers, find the index of values that satisfy A + B = C + D, 
+where A,B,C & D are integers values in the array
 
 Note:
 
