@@ -13,7 +13,7 @@ A1      B1      C1      40
 A5      B2      *       10
 
 Now if I have a condition A1 & B2 & C3 i will get output as 40.
-If I input A1 &amp;&amp; B1 &amp;&amp; C1 I will get two results 40 and 20 here there the rule is ambiguous.
+If I input A1 & B1 & C1 I will get two results 40 and 20 here there the rule is ambiguous.
 "-" in table means any rule, 5th row matches with any row with B1 as rule2, so there is also ambiguity in result.
 
 Now given that table as input (m * n) where n is number of available rules combination (here its 6) 
