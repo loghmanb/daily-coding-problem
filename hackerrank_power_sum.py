@@ -24,4 +24,4 @@ if __name__ == '__main__':
            ]
     
     for l in data:
-        print('the num f ways for ', l[0], ' as the sum of ', l[1], 'th of unique, natural numbers is ', powerSum(*l))
+        print('the num of ways for ', l[0], ' as the sum of ', l[1], 'th of unique, natural numbers is ', powerSum(*l))
