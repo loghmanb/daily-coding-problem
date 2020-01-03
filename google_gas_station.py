@@ -1,11 +1,7 @@
 '''
 Gas Station
-Asked in:  
-Bloomberg
-Google
-DE Shaw
-Amazon
-Flipkart
+Asked in: Bloomberg, Google, DE Shaw, Amazon, Flipkart
+
 Given two integer arrays A and B of size N.
 There are N gas stations along a circular route, where the amount of gas at station i is A[i].
 
@@ -48,11 +44,11 @@ def canCompleteCircuit(gas, cost):
     fuel=0
     start=0
     for i in range(len(gas)):
-            sumo = sumo + (gas[i] - cost[i])
-            fuel = fuel + (gas[i] - cost[i])
-            if fuel<0:
-                fuel=0
-                start=i+1
+        sumo = sumo + (gas[i] - cost[i])
+        fuel = fuel + (gas[i] - cost[i])
+        if fuel<0:
+            fuel=0
+            start=i+1
     if sumo>=0:
         return (start%len(gas))
     else:
