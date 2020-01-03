@@ -19,7 +19,7 @@ the returned vector should be [1, 2, 4]
 as 123 + 1 = 124.
 '''
 
-def plusOne(self, A):
+def plusOne(A):
     A[-1] += 1
     for i in range(len(A)-1, -1, -1):
         if A[i]>=10:
@@ -38,7 +38,7 @@ def plusOne(self, A):
 
 
 if __name__=='__main__':
-    d = [
+    data = [
         [[1, 2, 3], [1, 2, 4]]
     ]
 
