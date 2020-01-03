@@ -1,13 +1,18 @@
 '''
 https://www.hackerrank.com/challenges/min-max-riddle/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=stacks-queues
 
-Given an integer array of size , find the maximum of the minimum(s) of every window size in the array. The window size varies from  to .
+Given an integer array of size , find the maximum of the minimum(s) of every window size in the array. 
+The window size varies from 1 to n.
 
-For example, given , consider window sizes of  through . Windows of size  are . The maximum value of the minimum values of these windows is . Windows of size  are  and their minima are . The maximum of these values is . Continue this process through window size  to finally consider the entire array. All of the answers are .
+For example, given arr = [6, 3, 5, 1 12], consider window sizes of 1 through 5. Windows of size 1 are (6), (3), (5), (1) and (12). 
+The maximum value of the minimum values of these windows is 12. Windows of size 2 are (6,3), (3,5), (5,1) and (1,12).
+their minima are {3, 3, 1, 1}. The maximum of these values is 3. 
+Continue this process through window size 5 to finally consider the entire array. All of the answers are {12, 3, 3, 1, 1}.
 
 Function Description
 
-Complete the riddle function in the editor below. It must return an array of integers representing the maximum minimum value for each window size from  to .
+Complete the riddle function in the editor below. 
+It must return an array of integers representing the maximum minimum value for each window size from 1 to n.
 
 riddle has the following parameter(s):
 
@@ -19,7 +24,9 @@ The second line contains  space-separated integers, each an .
 
 Constraints
 
+1 <= n <= 10**6
 
+0 <= n <= 10**9
 
 Output Format
 
