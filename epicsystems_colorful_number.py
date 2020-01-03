@@ -40,6 +40,8 @@ def colorful_no(A):
             n = reduce(lambda x,y:x*y, list(map(int, A[i:j])))
             if n in products:
                 return 0
+            else:
+                products.add(n)
     return 1
 
 if __name__ == "__main__":
@@ -48,4 +50,4 @@ if __name__ == "__main__":
     ]
 
     for d in data:
-        print('input', d[0], colorful_no(d[0]))
+        print('input', d[0], 'output', colorful_no(d[0]))
