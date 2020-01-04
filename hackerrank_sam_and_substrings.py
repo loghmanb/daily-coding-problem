@@ -81,4 +81,4 @@ if __name__ == "__main__":
     ]
 
     for d in data:
-        print('input', d[0], solution(d[0]))
+        print('input', d[0], 'output', solution(d[0]))
