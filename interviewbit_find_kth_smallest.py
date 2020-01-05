@@ -65,8 +65,8 @@ def find_kth_smallest_heap(arr, k):
     mem = arr[:k]
     heapq._heapify_max(mem)
     for i in range(k, len(arr)):
-        if arr[k]<mem[0]:
-            heapq._heapreplace_max(mem, arr[k])
+        if arr[i]<mem[0]:
+            heapq._heapreplace_max(mem, arr[i])
     return mem[0]
 
 if __name__ == "__main__":
