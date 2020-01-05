@@ -5,7 +5,7 @@ Asked by Model N, InMobi, Amazon, Stripe
 
 https://www.interviewbit.com/problems/first-missing-integer/
 
-This problem was asked by . 
+This problem was asked by InMobi. 
 Given an array of integers, find the first missing positive integer in linear
 time and constant space. In other words, find the lowest positive integer that
 does not exist in the array. The array can contain duplicates and negative
@@ -79,13 +79,21 @@ class Node:
 def firstMissingPositive(A):
     n = len(A)
     B = [0] * n
-    for i,x in enumerate(A):
-        if x>0 and x<=n: 
-            B[x-1] = x
-    for i,x in enumerate(B):
-        if x==0:
-            return i+1
-    return n+1
+
+    changed = True
+    while changed:
+        changed = False
+        first_zero = n+1
+        for i,x in enumerate(A):
+            if x==0 and first_zero==n+1:
+                first_zero = i+1
+            elif x>0 and x<=n and A[x-1]!=x:
+                A[x-1], A[i] = x, A[x-1]
+                if A[i]<0:
+                    A[i] = 0
+                changed = True
+
+    return first_zero
 
 
 if __name__ == '__main__':
@@ -100,4 +108,5 @@ if __name__ == '__main__':
         print( 'input: ', l, 
                ' output by RagedBinaryTree:', n.find_min_positive(), 
                'output by firstMissingPositive', firstMissingPositive(l) )
+
 
