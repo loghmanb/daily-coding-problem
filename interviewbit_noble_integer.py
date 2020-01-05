@@ -22,7 +22,7 @@ def solve(A):
                 elif A[i]>N-i-1:
                     break
         elif A[i]==0:
-                return 1
+            return 1
     return -1
 
 
