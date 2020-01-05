@@ -20,14 +20,14 @@ def isPalindrome(A):
     i,j = 0,len(A)-1
     while i<j:
         if not A[i].isalpha() and not A[i].isnumeric():
-                i+=1
+            i += 1
         elif not A[j].isalpha() and not A[j].isnumeric():
-                j-=1
+            j-=1
         elif A[i].lower()!=A[j].lower():
-                return 0
+            return 0
         else:
-                i+=1
-                j-=1
+            i+=1
+            j-=1
     return 1
 
 
