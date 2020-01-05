@@ -29,8 +29,8 @@ def nchoc(A, B):
     for _ in range(A):
         x = heapq.heappop(B)
         ans += -x
-        x = (-x) // 2
-        heapq.heappush(B, -x)
+        x //= 2
+        heapq.heappush(B, x)
     return ans%(10**9+7)
 
 
