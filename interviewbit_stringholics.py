@@ -21,7 +21,7 @@ Eg: String is "abaa"
 After some units of time, a string becomes equal to it’s original self.
 Once a string becomes equal to itself, it’s letters start to rotate from the first letter again (process resets). So, if a string takes t time to get back to the original, at time t+1 one letter will be rotated and the string will be it’s original self at 2t time.
 You have to find the minimum time, where maximum number of strings are equal to their original self.
-As this time can be very large, give the answer modulo 109+7.
+As this time can be very large, give the answer modulo 10**9+7.
 
 Note: Your solution will run on multiple test cases so do clear global variables after using them.
 
@@ -41,7 +41,7 @@ Example:
 
 Input
 
-A: [a,ababa,aba]
+A: [a, ababa, aba]
 Output
 
 4
@@ -81,26 +81,26 @@ Hence total time complexity is O(N).
 '''
 
 def computeLPSArray(pat, M):
-        lps=[0]*M
-        len = 0
-        lps[0] # lps[0] is always 0
-        i = 1
-        while i < M:
-            if pat[i]==pat[len]:
-                len += 1
-                lps[i] = len
-                i += 1
-            else:
-                if len != 0:
-                    len = lps[len-1]
-                else:
-                    lps[i] = 0
-                    i += 1
-        len=lps[M-1]
-        if(M%(M-len)==0):
-            return M-len
+    lps=[0]*M
+    len = 0
+    lps[0] # lps[0] is always 0
+    i = 1
+    while i < M:
+        if pat[i]==pat[len]:
+            len += 1
+            lps[i] = len
+            i += 1
         else:
-            return M
+            if len != 0:
+                len = lps[len-1]
+            else:
+                lps[i] = 0
+                i += 1
+    len=lps[M-1]
+    if(M%(M-len)==0):
+        return M-len
+    else:
+        return M
             
 def gcd(A,B):
     if(B>A):
