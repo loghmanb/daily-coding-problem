@@ -9,6 +9,19 @@ Example:
 Input:  {1 ,2 ,-2 ,4 ,-4}
 Output: {2 ,-2 ,4 ,-4}
 
+Hint:
+Lets try to reduce the problem to a much simpler problem.
+Lets say we have another array sum where
+
+  sum[i] = Sum of all elements from A[0] to A[i]
+Note that in this array, sum of elements from A[i] to A[j] = Sum[j] - Sum[i-1]
+
+We need to find j and i such that sum of elements from A[i] to A[j] = 0
+ Or Sum[j] - Sum[i-1] = 0
+ Or Sum[j] = Sum[i-1]
+
+ Solved by interviewbit.com
+
 '''
 
 def lszero(A):
@@ -40,7 +53,8 @@ def lszero(A):
 
 if __name__=='__main__':
     d = [
-         [[ 1, 2, -3, 3 ], [ 1, 2, -3]],
+         [[-1, 3, 4, -5, 2, 6], []],
+         [[1, 2, -3, 3], [ 1, 2, -3]],
          [[1 ,2 ,-2 ,4 ,-4], [2 ,-2 ,4 ,-4]],
     ]
 
