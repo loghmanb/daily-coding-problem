@@ -37,7 +37,7 @@ def solve1(A):
     b = float(A[1])
     c = float(A[2])
     for i in range(3 , n):
-        if ((a+b+c) > 1 and (a+b+c) < 2):
+        if ( 1 < (a+b+c) < 2 ):
             return 1
         elif ((a+b+c) > 2):
             if (a>b and a>c):
@@ -53,7 +53,7 @@ def solve1(A):
                 b = float(A[i])
             elif (c<a and c<b):
                 c = float(A[i])
-    if ((a+b+c) > 1 and (a+b+c) < 2) :
+    if ( 1 < (a+b+c) < 2) :
         return 1
     else:
         return 0
@@ -61,8 +61,7 @@ def solve1(A):
 
 # @param A : list of strings
 # @return an integer
-def solve2(self, A):
-    n = len(A)
+def solve2(A):
     B = [float(i) for i in A]
     buckets = [[], [], []]
     for i in B:
@@ -119,4 +118,11 @@ def solve2(self, A):
             return 1
     return 0
 
-
+if __name__ == "__main__":
+    data = [
+            [
+             [0.6, 0.7, 0.8, 1.2, 0.4], 1
+            ]
+    ]
+    for d in data:
+        print('input', d[0], 'output#1', solve1(d[0]), 'output', solve2(d[0]))
