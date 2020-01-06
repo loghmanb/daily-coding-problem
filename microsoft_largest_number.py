@@ -22,7 +22,7 @@ from functools import cmp_to_key
 def largestNumber(A):
     def cmp_numbers(a, b):
         if len(a)==len(b):
-                return 1 if a<b else -1
+            return 1 if a<b else -1
         m = min(len(a), len(b))
         if a[:m]==b[:m]:
             if len(a)<len(b):
