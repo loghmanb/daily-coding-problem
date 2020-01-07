@@ -28,10 +28,20 @@ def calc_no_of_ways(w):
     
     return f(w)
 
+def calc_no_of_ways_opt(w):
+    ways = [0]*(len(w)+1)
+    ways[0] = 1
+    for i,x in enumerate(w):
+        if x>'6' or x=='0' or i>0 and w[i-1]>'2':
+            ways[i+1] = ways[i]
+        else:
+            ways[i+1] = ways[i] + ways[i-1]
+    return ways[-1]
+
 
 if __name__ == '__main__':
 
     test_list = ['111', '2626']
     
     for s in test_list:
-        print( 'string: ', s, ' no of ways: ', calc_no_of_ways(s) )
+        print( 'string: ', s, ' no of ways: ', calc_no_of_ways(s), ' optimized: ', calc_no_of_ways_opt(s) )
