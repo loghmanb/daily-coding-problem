@@ -8,7 +8,8 @@ Today being his birthday, his friends have planned to give him birthday bombs (k
 
 Tushar’s friends know Tushar’s pain bearing limit and would hit accordingly.
 
-If Tushar’s resistance is denoted by A (>=0) then find the lexicographically smallest order of friends to kick Tushar so that the cumulative kick strength (sum of the strengths of friends who kicks) doesn’t exceed his resistance capacity and total no. of kicks hit are maximum.
+If Tushar’s resistance is denoted by A (>=0) then find the lexicographically smallest order of friends to kick Tushar 
+so that the cumulative kick strength (sum of the strengths of friends who kicks) doesn’t exceed his resistance capacity and total no. of kicks hit are maximum.
 
 Also note that each friend can kick unlimited number of times (If a friend hits x times, his strength will be counted x times)
 
@@ -63,9 +64,9 @@ def solve(A, B):
     result = []
     def kicks_no(no, i, kicks):
         if not no or i>=len(B):
-            result.append(tuple([no, -len(kicks)]+kicks))
+            result.append(tuple( [no, -len(kicks)]+kicks ))
         elif B[i]==no:
-            result.append(tuple([0, -len(kicks)-1]+kicks+[i]))
+            result.append(tuple( [0, -len(kicks)-1]+kicks+[i] ))
         else:
             if B[i]<no:
                 kicks_no(no-B[i], i, kicks+[i])
@@ -74,8 +75,8 @@ def solve(A, B):
     result.sort()
     return result and result[0][2:] or []
     
-# @param A : integer
-# @param B : list of integers
+# @param r : integer
+# @param S : list of integers
 # @return a list of integers
 def solve_optimized(r, S):
         
@@ -100,10 +101,13 @@ def solve_optimized(r, S):
 if __name__ == "__main__":
     data = [
             [
-             [12, [8, 8, 6, 5, 4]],
+             [12, [8, 8, 6, 5, 4]], [4, 4, 4]
             ],
             [
-             [10, [8, 8, 6, 5, 4]]
+             [10, [8, 8, 6, 5, 4]], [2, 4]
+            ],
+            [
+             [10, [8, 5, 6, 8, 4]], [1, 1]
             ]
     ]
     for d in data:
