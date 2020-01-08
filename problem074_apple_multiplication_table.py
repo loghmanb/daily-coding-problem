@@ -28,13 +28,14 @@ def solve(N, No):
         if No%i==0:
             ans += 1
     if N>=No:
-        ans += 1
+        ans += 2
     return ans
 
 
 if __name__ == "__main__":
     data = [
-            [[6, 12], 4]
+            [[6, 12], 4],
+            [[6, 6]]
     ]
     for d in data:
         print('input', d[0], 'output', solve(*d[0]))
