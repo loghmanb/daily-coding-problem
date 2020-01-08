@@ -40,6 +40,23 @@ def noOfIslands(mat):
                 addIsland((i+1, j), visited, mat)
     return len(islasnds.keys())
 
+def noOfIslands_optimized(mat):
+    islands = []
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            if mat[i][j]:
+                found = False
+                for island in islands:
+                    if (i-1, j) in island \
+                            or (i, j-1) in island \
+                            or (i+1, j) in island \
+                            or (i, j+1) in island:
+                        found =True
+                        island.add((i, j))
+                if not found:
+                    islands.append(set([(i, j)]))
+    return len(islands)
+
 
 if __name__ == "__main__":
     data = [
@@ -56,4 +73,4 @@ if __name__ == "__main__":
             ]
     ]
     for d in data:
-        print('input', d[0], 'output', noOfIslands(d[0]))
+        print('input', d[0], 'output#1', noOfIslands(d[0]), 'output#2', noOfIslands(d[0]))
