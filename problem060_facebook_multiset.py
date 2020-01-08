@@ -26,7 +26,8 @@ def isPartitionable(arr):
 if __name__ == "__main__":
     data = [
             [[15, 5, 20, 10, 35, 15, 10], True],
-            [[15, 5, 20, 10, 35], False]
+            [[15, 5, 20, 10, 35], False],
+            [[20, 21, 11, 10], True],
     ]
     for d in data:
         print('input', d[0], 'output', isPartitionable(d[0]))
