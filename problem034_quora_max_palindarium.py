@@ -28,8 +28,7 @@ def findMinInsertionsDP(str1):
     # will store minimum number of insertions  
     # needed to convert str1[i..j] to a palindrome. 
     n = len(str1)
-    table = [[0 for i in range(n)]  
-                for i in range(n)] 
+    table = [[0]*n for _ in range(n)] 
     l, h, gap = 0, 0, 0
   
     # Fill the table 
