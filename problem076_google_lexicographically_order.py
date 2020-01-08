@@ -1,7 +1,10 @@
 '''
 This problem was asked by Google.
 
-You are given an N by M 2D matrix of lowercase letters. Determine the minimum number of columns that can be removed to ensure that each row is ordered from top to bottom lexicographically. That is, the letter at each column is lexicographically later as you go down each row. It does not matter whether each row itself is ordered lexicographically.
+You are given an N by M 2D matrix of lowercase letters. 
+Determine the minimum number of columns that can be removed to ensure that each row is ordered from top to bottom lexicographically. 
+That is, the letter at each column is lexicographically later as you go down each row. 
+It does not matter whether each row itself is ordered lexicographically.
 
 For example, given the following table:
 
@@ -33,8 +36,8 @@ Your function should return 3, since we would need to remove all the columns to 
 
 def check(s1, s2, removed_cols):
     for i in removed_cols:
-        s1 = s1[:i] + s1[i+1:]
-        s2 = s2[:i] + s2[i+1:]
+        s1 = s1[:i] + ' ' + s1[i+1:]
+        s2 = s2[:i] + ' ' + s2[i+1:]
     return bool(s1<=s2)
 
 def solve(arr):
@@ -61,7 +64,7 @@ if __name__ == "__main__":
                 ['cba', 'daf', 'ghi'], 1
             ],
             [
-                ['abcdef'], 1
+                ['abcdef'], 0
             ],
             [
                 ['zyx', 'wvu', 'tsr'], 3
