@@ -25,6 +25,15 @@ def nonDecreasingable(arr):
             min2 = arr[i]
     return True
 
+def nonDecreasingable_optimized(arr):
+    noOfDecreased = 0
+    for i in range(1, len(arr)):
+        if arr[i]<arr[i-1]:
+            noOfDecreased += 1
+            if noOfDecreased>1:
+                return False
+    return True
+
 if __name__ == "__main__":
     data = [
             [
@@ -38,4 +47,4 @@ if __name__ == "__main__":
             ],
     ]
     for d in data:
-        print('input', d[0], 'output', nonDecreasingable(d[0]))
+        print('input', d[0], 'output#1', nonDecreasingable(d[0]), 'output#2', nonDecreasingable_optimized(d[0]))
