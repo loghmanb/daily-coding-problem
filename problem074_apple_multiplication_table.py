@@ -28,7 +28,7 @@ def solve(N, No):
         if No%i==0:
             ans += 1
     if N>=No:
-        ans += 2
+        ans += 2 # because of 1*N = No and N*1 = No
     return ans
 
 
