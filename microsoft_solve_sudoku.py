@@ -26,16 +26,16 @@ Solved by interviewbit!
 '''
 
 class Solution:
-# @param board, a 9x9 2D array
-# Solve the Sudoku by modifying the input board in-place.
-# Do not return any value.
+    # @param board, a 9x9 2D array
+    # Solve the Sudoku by modifying the input board in-place.
+    # Do not return any value.
     def solveSudoku(self, board):
         self.board = board
         self.val = self.PossibleVals()
         self.Solver()
 
     def PossibleVals(self):
-        a = "123456789"
+        values = "123456789"
         d, val = {}, {}
         for i in range(9):
             for j in range(9):
@@ -47,8 +47,8 @@ class Solution:
                 else:
                     val[(i,j)] = []
         for (i,j) in val.keys():
-            inval = d.get(("r",i),[])+d.get(("c",j),[])+d.get((i/3,j/3),[])
-            val[(i,j)] = [n for n in a if n not in inval ]
+            invalids = d.get(("r",i),[])+d.get(("c",j),[])+d.get((i/3,j/3),[])
+            val[(i,j)] = [n for n in values if n not in invalids]
         return val
 
     def Solver(self):
