@@ -40,7 +40,7 @@ def find_anagram_in_str(S, W):
 
 class TestFindAnagramInString(unittest.TestCase):
 
-    def test_find_anagram_in_str_3letter_in_string(self):
+    def test_find_anagram_in_str_ab_in_abxaba(self):
         result = find_anagram_in_str("abxaba", "ab")
         expected = [0, 3, 4]
         self.assertEquals(expected, result)
