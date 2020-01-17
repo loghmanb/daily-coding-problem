@@ -41,6 +41,8 @@ Return the following  :
 
 '''
 
+import unittest
+
 # @param A : list of list of integers
 # @return a list of list of integers
 def diagonal(A):
@@ -55,23 +57,29 @@ def diagonal(A):
     return ans
 
 
+class TestDiagonalFunction(unittest.TestCase):
+    
+    def test_diagonal_empty_array(self):
+        result = diagonal([])
+        expected = []
+        self.assertEqual(expected, result)
+
+    def test_diagonal_with_data(self):
+        result = diagonal([
+                            [1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9],
+                          ])
+        expected = [
+                    [1],
+                    [2, 4],
+                    [3, 5, 7],
+                    [6, 81],
+                    [9]
+                   ]
+        self.assertEqual(expected, result, 'Error whith 3 dimension array')
+
 
 if __name__=='__main__':
-    data = [
-        [
-         [
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9],
-         ],
-         [
-            [1],
-            [2, 4],
-            [3, 5, 7],
-            [6, 8],
-            [9]
-         ]
-        ]
-    ]
-    for d in data:
-        print('input', d[0], 'output', diagonal(d[0]))
+    
+    unittest.main()
