@@ -27,30 +27,55 @@ Then the rotated array becomes:
     [4, 2]
 ]
 '''
+import unittest
 
-# @param A : list of list of integers
-# @return the same list modified
-def rotate(A):
+def rotate90(A):
     N = len(A)
-    ans = [[0]*N for _ in range(N)]
-    for i in range(N):
-        for j in range(N):
-            ans[j][N-1-i] = A[i][j]
-    return ans
+    for k in range(N//2):
+        i = j = k
+        for l in range(k, N-2*k-1):
+            tmp1 = A[i][j]
+            for _ in range(4):
+                new_i = j
+                new_j = N-1-i
+                tmp2 = A[new_i][new_j]
+                A[new_i][new_j] = tmp1
+                tmp1 = tmp2
+                i = new_i
+                j = new_j
+            j += 1
+    return A
+
+
+class TestRotate90(unittest.TestCase):
+
+    def test_rotate90_2x2(self):
+        result = rotate90([
+                            [1, 2],
+                            [3, 4]
+                          ])
+        expected = [
+                    [3, 1],
+                    [4, 2]
+                   ]
+        self.assertEqual(expected, result)
+
+    def test_rotate90_3x3(self):
+        result = rotate90(
+                          [
+                            [1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9]
+                          ])
+        expected = [
+                    [7, 4, 1],
+                    [8, 5, 2],
+                    [9, 6, 3]
+                   ]
+                   
+        self.assertEqual(expected, result)
+
 
 if __name__ == "__main__":
-    data = [
-            [
-                [
-                 [1, 2],
-                 [3, 4]
-                ],
-                [
-                 [3, 1],
-                 [4, 2]
-                ]
-            ]
-           ] 
     
-    for d in data:
-        print('input', d[0], 'output', rotate(d[0]))
+    unittest.main()
