@@ -74,7 +74,7 @@ class TestDiagonalFunction(unittest.TestCase):
                     [1],
                     [2, 4],
                     [3, 5, 7],
-                    [6, 81],
+                    [6, 8],
                     [9]
                    ]
         self.assertEqual(expected, result, 'Error whith 3 dimension array')
