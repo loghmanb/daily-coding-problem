@@ -39,8 +39,10 @@ ans = [2, 0, 1]
 Here, sorted reviews are ["cool_wifi_speed", "water_is_cool", "cold_ice_drink"]
 '''
 
-def solve(S, R):
-    S = dict.fromkeys(S.split('_'), True)
+import unittest
+
+def findHotelOrder(S, R):
+    S = set(S.split('_'))
     ans = []
     for i, review in enumerate(R):
         score = 0
@@ -51,13 +53,15 @@ def solve(S, R):
     ans.sort(key= lambda x:x[0], reverse=True)
     return list(map(lambda x:x[1], ans))
 
-if __name__ == "__main__":
-    data = [
-            [
-                ["cool_ice_wifi", ["water_is_cool", "cold_ice_drink", "cool_wifi_speed"]],
-                [2, 0, 1],
-            ]
-    ]
-    for d in data:
-        print('input', d[0], 'output', solve(*d[0]))
 
+class FindHotelOrderTest(unittest.TestCase):
+    
+    def test_findHotelOrder_1(self):
+        result = findHotelOrder("cool_ice_wifi", ["water_is_cool", "cold_ice_drink", "cool_wifi_speed"])
+        expected = [2, 0, 1]
+        self.assertEqual(expected, result)
+        
+
+if __name__ == "__main__":
+
+    unittest.main()
