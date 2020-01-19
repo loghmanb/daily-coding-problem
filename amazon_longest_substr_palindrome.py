@@ -21,6 +21,8 @@ if len of S is equal 2 and S[0]==S[1] return 2
 
 '''
 
+import unittest
+
 def longestPalindromeSubstring(S):
     if not S: return 0
     
@@ -53,14 +55,24 @@ def longestPalindromeSubstring(S):
                     maxLen = k
                     start = i
     
+    palindrome_sub_str = S[i:i+maxLen]
+
     return maxLen
 
 
-if __name__ == "__main__":
-     data = [
-             ['baab', 4],
-             ['aabcdcb', 5]   
-     ]
+class PalindromeSubStrTest(unittest.TestCase):
 
-     for d in data:
-         print('input', d[0], 'output', longestPalindromeSubstring(d[0]))
+    def test_longestPalindromeSubstring_baab(self):
+        result = longestPalindromeSubstring("baab")
+        expected = 4
+        self.assertEqual(expected, result)
+
+    def test_longestPalindromeSubstring_aabcdcb(self):
+        result = longestPalindromeSubstring("aabcdcb")
+        expected = 5
+        self.assertEqual(expected, result)
+
+
+if __name__ == "__main__":
+    
+    unittest.main()
