@@ -20,6 +20,8 @@ https://medium.com/solvingalgo/solving-algorithmic-problems-max-distance-in-an-a
 
 '''
 
+import unittest
+
 def maximumGap(A):
     if not A: return -1
     if len(A)==1: return 0
@@ -46,10 +48,14 @@ def maximumGap(A):
     return maxGap
 
 
-if __name__=='__main__':
-    data = [
-            [[3, 5, 4, 2], 2]
-    ]
+class TestMaximumGap(unittest.TestCase):
 
-    for d in data:
-        print('input', d[0], 'output', maximumGap(d[0]))
+    def test_maximumGap_1(self):
+        result = maximumGap([3, 5, 4, 2])
+        expected = 2
+        self.assertEqual(expected, result)
+
+
+if __name__=='__main__':
+    
+    unittest.main()
