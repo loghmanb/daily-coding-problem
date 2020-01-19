@@ -17,20 +17,42 @@ so the function should return 3.
 Note that since Java does not have unsigned int, use long for Java
 '''
 
-# @param A : integer
-# @return an integer
-def numSetBits(A):
-    no_of_one = 0
-    while A>0:
-        no_of_one += A%2
-        A = A//2
-    return no_of_one
+import unittest
+
+
+class Solution:
+    # @param A : integer
+    # @return an integer
+    def numSetBits(self, A):
+        no_of_one = 0
+        while A>0:
+            no_of_one += A%2
+            A = A//2
+        return no_of_one
+
+
+    # @param A : integer
+    # @return an integer
+    def numSetBitsByFunc(self, A):
+        return bin(A).count('1')
+
+
+class TestSolution(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_numSetBits_5(self):
+        result = self.solution.numSetBits(5)
+        expected = 2
+        self.assertEqual(result, expected)
+
+    def test_numSetBitsByFunc_5(self):
+        result = self.solution.numSetBitsByFunc(5)
+        expected = 2
+        self.assertEqual(result, expected)
 
 
 if __name__ == "__main__":
-    data = [
-            [5, 2]
-    ]
-
-    for d in data:
-        print('input', d[0], 'output', numSetBits(d[0]))
+    
+    unittest.main()
