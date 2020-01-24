@@ -22,30 +22,45 @@ as 3 - 1 = 2
 Return 0 / 1 for this problem.
 '''
 
+import unittest
 from collections import defaultdict
 
-# @param A : tuple of integers
-# @param B : integer
-# @return an integer
-def diffPossible(A, B):
-    nums = defaultdict(set)
-    for i,x in enumerate(A):
-            nums[x].add(i)
+class Solution:
 
-    for i,x in enumerate(A):
-        other = x-B
-        no_of_num = len(nums[other])
-        if other!=x and no_of_num>0 or no_of_num>1:
-            return 1
-    return 0
+    def is_exists(self, nums, x1, x2):
+        if x1==x2 and len(nums[x1])>1 or \
+                x1 in nums and x2 in nums:
+            return True
+        return False
+
+    # @param A : tuple of integers
+    # @param K : integer
+    # @return an integer
+    def diffPossible(self, A, K):
+        nums = defaultdict(set)
+        for i,x in enumerate(A):
+                nums[x].add(i)
+
+        for x in A:
+            other1 = x-K
+            other2 = x+K
+            if self.is_exists(nums, x, other1) \
+                    or self.is_exists(nums, x, other2):
+                return True
+        return False
+
+
+class SolutionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.solution = Solution()
+
+    def test_diffPossible_1(self):
+        result = self.solution.diffPossible([1, 5, 3], 2)
+        expected = True
+        self.assertEqual(result, expected)
 
 
 if __name__=='__main__':
-    data = [
-            [
-                [[1, 5, 3], 2], 1
-            ]
-    ]
-
-    for d in data:
-        print('input', d[0], 'output', diffPossible(*d[0]))
+    
+    unittest.main()
