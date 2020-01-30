@@ -37,6 +37,7 @@ Explanation 2:
     The subarray [4,-1,2,1] has the maximum possible sum of 6.
 '''
 
+import unittest
 
 def maxSubArray(A):
     if not A: return
@@ -55,11 +56,19 @@ def maxSubArray(A):
     return max_subA
 
 
-if __name__=='__main__':
-    data = [
-        [[1, 2, 3, 4, -10], 10],
-        [[-2, 1, -3, 4, -1, 2, 1, -5, 4], 6]
-    ]
+class MAxContSubArrTest(unittest.TestCase):
 
-    for d in data:
-        print('input', d[0], 'output', maxSubArray(d[0]))
+        def test_maxSubArray_1(self):
+            result = maxSubArray([1, 2, 3, 4, -10])
+            expected = 10
+            self.assertEqual(result, expected)
+
+        def test_maxSubArray_2(self):
+            result = maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+            expected = 6
+            self.assertEqual(result, expected)
+
+
+if __name__=='__main__':
+    
+    unittest.main()
