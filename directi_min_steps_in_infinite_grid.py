@@ -32,6 +32,9 @@ It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move fr
 This question is intentionally left slightly vague. Clarify the question by trying out a few cases in the “See Expected Output” section.
 '''
 
+import unittest
+
+
 def coverPoints(A, B):
     if len(A)<2: return 0
         
@@ -41,12 +44,10 @@ def coverPoints(A, B):
     return ans
 
 
-if __name__=='__main__':
-    data = [
-            [
-             [0, 1, 1], [0, 1, 2], 2
-            ]
-        ]
+class TestCoverPoints(unittest.TestCase):
+    def test_1(self):
+        self.assertEqual(2,  coverPoints([0, 1, 1], [0, 1, 2]))
 
-    for d in data:
-        print('input', d[0], d[1], 'output', coverPoints(d[0], d[1]))
+
+if __name__=='__main__':
+    unittest.main()
