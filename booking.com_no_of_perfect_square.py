@@ -14,7 +14,7 @@ n=20 (16+4) i.e. 2
 
 import math
 import sys
-
+import unittest
 
 def find_no_of_perfect_square(n):
     if n<0:
@@ -34,12 +34,19 @@ def find_no_of_perfect_square(n):
         return n
 
 
+class NoOfPerfectSquareTextCase(unittest.TestCase):
+    def test_5(self):
+        self.assertEqual(2, find_no_of_perfect_square(5))
+
+    def test_7(self):
+        self.assertEqual(4, find_no_of_perfect_square(7))
+
+    def test_12(self):
+        self.assertEqual(3, find_no_of_perfect_square(12))
+
+    def test_20(self):
+        self.assertEqual(2, find_no_of_perfect_square(20))
+
+
 if __name__=='__main__':
-    data = [
-            [5, 2],
-            [7, 4],
-            [12, 3],
-            [20, 2],
-            ]
-    for d in data:
-        print('the least no of perfect square for', d[0], 'is', find_no_of_perfect_square(d[0]), 'expected', d[1])
+    unittest.main()
