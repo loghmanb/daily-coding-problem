@@ -43,9 +43,12 @@ In that case the total number of jumps will be
 
 '''
 
-# @param seats : string
+import unittest
+
+
+# @param min_cost_seats : string
 # @return an integer
-def seats(seats):
+def min_cost_moves_seats(seats):
     n = len(seats)
     moves = 0
         
@@ -71,9 +74,10 @@ def seats(seats):
     return moves%10000003
 
 
+class SeatsTestCase(unittest.TestCase):
+    def test_1(self):
+        self.assertEquals(5, min_cost_moves_seats('....x..xx...x..'))
+
+
 if __name__ == "__main__":
-    data = [
-            ['....x..xx...x..', 5],
-    ]
-    for d in data:
-        print('input', d[0], 'output', seats(d[0]))
+    unittest.main()
