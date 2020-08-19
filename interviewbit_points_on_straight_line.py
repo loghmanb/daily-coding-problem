@@ -14,3 +14,18 @@ Sample Output :
 You will be given 2 arrays X and Y. Each point is represented by (X[i], Y[i])
 
 '''
+
+import unittest
+
+
+def no_of_lines(X, Y):
+    pass
+
+
+class NoOfLinesTestCase(unittest.TestCase):
+    def test_1(self):
+        self.assertEqual(1, no_of_lines([(1, 1), (2, 2)]))
+
+
+if __name__ == "__main__":
+    unittest.main()
