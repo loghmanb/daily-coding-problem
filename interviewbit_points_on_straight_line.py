@@ -23,6 +23,9 @@ def no_of_lines(X, Y):
 
 
 class NoOfLinesTestCase(unittest.TestCase):
+    def setUp(self):
+        pass
+
     def test_1(self):
         self.assertEqual(1, no_of_lines([(1, 1), (2, 2)]))
 
