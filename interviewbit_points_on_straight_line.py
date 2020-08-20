@@ -21,8 +21,6 @@ import unittest
 def no_of_lines(X, Y):
     pass
 
-# another comment
-
 
 class NoOfLinesTestCase(unittest.TestCase):
     def setUp(self):
