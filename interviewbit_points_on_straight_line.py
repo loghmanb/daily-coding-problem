@@ -19,7 +19,7 @@ import unittest
 
 
 def no_of_lines(X, Y):
-    pass
+    return 0
 
 
 class NoOfLinesTestCase(unittest.TestCase):
