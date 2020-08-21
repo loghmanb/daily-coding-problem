@@ -16,18 +16,38 @@ You will be given 2 arrays X and Y. Each point is represented by (X[i], Y[i])
 '''
 
 import unittest
+from collections import defaultdict
 
 
 def no_of_lines(X, Y):
-    return 0
+    N = len(X)
+    if N <= 1:
+        return N
+    elif N == 2:
+        return 1
+
+    lines = defaultdict(set)
+    for i in range(N):
+        for j in range(N):
+            if i != j:
+                if X[i] == X[j]:
+                    no_of_lines[X[i]].add(i)
+                    no_of_lines[X[i]].add(j)
+                else:
+                    a = float(Y[j]-Y[i]) / (X[j]-X[i])
+                    b = Y[j] - a * X[j]
+                    lines[(a, b)].add(i)
+                    lines[(a, b)].add(j)
+    return max(len(lines[k]) for k in lines)
 
 
 class NoOfLinesTestCase(unittest.TestCase):
-    def setUp(self):
-        pass
-
     def test_1(self):
         self.assertEqual(1, no_of_lines([(1, 1), (2, 2)]))
+
+    def test_2(self):
+        self.assertEqual(3, no_of_lines(
+            [(1, 2), (1, 3), (3, 3), (4, 4), (1, 5), (1, 7)]))
 
 
 if __name__ == "__main__":
