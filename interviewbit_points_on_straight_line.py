@@ -27,13 +27,21 @@ def no_of_lines(X, Y):
         return 1
 
     lines = defaultdict(set)
+    for i in range(N):
+        for j in range(N):
+            if i != j:
+                if X[i] == X[j]:
+                    no_of_lines[X[i]].add(i)
+                    no_of_lines[X[i]].add(j)
+                else:
+                    a = float(Y[j]-Y[i]) / (X[j]-X[i])
+                    b = Y[j] - a * X[j]
+                    lines[(a, b)].add(i)
+                    lines[(a, b)].add(j)
     return max(len(lines[k]) for k in lines)
 
 
 class NoOfLinesTestCase(unittest.TestCase):
-    def setUp(self):
-        pass
-
     def test_1(self):
         self.assertEqual(1, no_of_lines([(1, 1), (2, 2)]))
 
