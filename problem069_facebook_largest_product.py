@@ -25,4 +25,4 @@ if __name__ == "__main__":
         ]
     ]
     for d in data:
-        print('input:', d[0], 'output:', largest_product(d[0]))
+        print('input: ', d[0], 'output: ', largest_product(d[0]))
