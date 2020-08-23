@@ -31,8 +31,8 @@ def no_of_lines(X, Y):
         for j in range(N):
             if i != j:
                 if X[i] == X[j]:
-                    no_of_lines[X[i]].add(i)
-                    no_of_lines[X[i]].add(j)
+                    lines[X[i]].add(i)
+                    lines[X[i]].add(j)
                 else:
                     a = float(Y[j]-Y[i]) / (X[j]-X[i])
                     b = Y[j] - a * X[j]
@@ -43,11 +43,11 @@ def no_of_lines(X, Y):
 
 class NoOfLinesTestCase(unittest.TestCase):
     def test_1(self):
-        self.assertEqual(1, no_of_lines([(1, 1), (2, 2)]))
+        self.assertEqual(1, no_of_lines((1, 2), (1, 2)))
 
     def test_2(self):
-        self.assertEqual(3, no_of_lines(
-            [(1, 2), (1, 3), (3, 3), (4, 4), (1, 5), (1, 7)]))
+        self.assertEqual(4, no_of_lines((1, 1, 3, 4, 1, 1),
+                                        (2, 3, 3, 4, 5, 7)))
 
 
 if __name__ == "__main__":
