@@ -38,8 +38,8 @@ def maximumGap(A):
     maxIndex = float('-inf')
     rightMax = [0]*n
     for i in range(n-1, -1, -1):
-        maxIndex = max(maxIndex, B[i][1]);
-        rightMax[i] = maxIndex;
+        maxIndex = max(maxIndex, B[i][1])
+        rightMax[i] = maxIndex
 
     maxGap = 0
     for i in range(n):
@@ -55,6 +55,10 @@ class TestMaximumGap(unittest.TestCase):
         expected = 2
         self.assertEqual(expected, result)
 
+    def test_maximumGap_2(self):
+        result = maximumGap([3, 15, 2, 4, 8, 12, 6])
+        expected = 6
+        self.assertEqual(expected, result)
 
 if __name__=='__main__':
     

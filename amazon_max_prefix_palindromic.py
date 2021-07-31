@@ -32,33 +32,31 @@ Output 2:
     Explanation 2:
         Insert 'A' at beginning, string becomes: "AAACECAAAA".
         Insert 'A' at beginning, string becomes: "AAAACECAAAA".
+
+Solved by interviewbit
 '''
 
 # @param A : string
 # @return an integer
 def solve(A):
-    N = len(A)
-    ans = 0
-    start = 0
-    for i in range(N):
-        end = N-i-1
-        if start>=end:
+    # A palindromic string is equal to its reverse
+    reverse = A[::-1]
+    if reverse == A:
+        return 0
+            
+    # Every string can be made a palindrome by prepending
+    # (or appending) the reverse, and the outermost letter
+    # can be ignored. An initial part of the reverse might
+    # suffice if there are duplicate letters, so just count
+    # how much of the reverse we need:
+    for i in range(1, len(reverse)):
+        if reverse[:i] + A == reverse + A[-i:]:
             break
-        if A[end]!=A[start]:
-            if start>0:
-                if A[end]==A[0]:
-                    start = 1
-                    ans = i
-                    continue
-            start = 0
-            ans = i+1
-        else:
-            start += 1
-    return ans
-
+    return i
 
 if __name__ == "__main__":
     data = [
+            ['AAACECAAAA', 1],
             ['google', 2],
             ['ABC', 2],
             ['ABBABBA', 0],
