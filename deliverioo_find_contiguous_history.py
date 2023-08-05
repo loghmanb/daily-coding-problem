@@ -1,13 +1,15 @@
 '''
-We have some clickstream data that we gathered on our client's website. Using cookies, we collected snippets of users' anonymized URL histories while they browsed the site. The histories are in chronological order, and no URL was visited more than once per person.
+We have some clickstream data that we gathered on our client's website. 
+Using cookies, we collected snippets of users' anonymized URL histories while they browsed the site. 
+The histories are in chronological order, and no URL was visited more than once per person.
 
-Write a function that takes two users' browsing histories as input and returns the longest contiguous sequence of URLs that appears in both.
+Write a function that takes two users' browsing histories as input 
+and returns the longest contiguous sequence of URLs that appears in both.
 
 Sample input:
 
 user0 = ["/start", "/green", "/blue", "/pink", "/register", "/orange", "/one/two"]
 user1 = ["/start", "/pink", "/register", "/orange", "/red", "a"]
-
 user2 = ["a", "/one", "/two"]
 user3 = ["/pink", "/orange", "/yellow", "/plum", "/blue", "/tan", "/red", "/amber", "/HotRodPink", "/CornflowerBlue", "/LightGoldenRodYellow", "/BritishRacingGreen"]
 user4 = ["/pink", "/orange", "/amber", "/BritishRacingGreen", "/plum", "/blue", "/tan", "/red", "/lavender", "/HotRodPink", "/CornflowerBlue", "/LightGoldenRodYellow"]
