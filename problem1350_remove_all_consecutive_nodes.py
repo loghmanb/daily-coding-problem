@@ -14,10 +14,11 @@ def remove_all_consecutive_nodes(nodes):
     s = 0
     for p, node in enumerate(nodes):
         s += node
-        if s in visited:
+        if s in visited or s==0:
             s1 = s
             nodes[p] = 0
-            for i in range(visited[s]+1, p):
+            start = 0 if s == 0 else visited[s]+1
+            for i in range(start, p):
                 s1 += nodes[i]
                 nodes[i] = 0
                 if s1 in visited:
@@ -31,6 +32,10 @@ def remove_all_consecutive_nodes(nodes):
 class TestRemoveConsecutive(unittest.TestCase):
     def test_1(self):
         result = remove_all_consecutive_nodes([5, 3, 2, -2, -1, -2])
+        self.assertEqual(result, [5])
+
+    def test_2(self):
+        result = remove_all_consecutive_nodes([3, 4, -7, 5, -6, 6])
         self.assertEqual(result, [5])
 
 if __name__=='__main__':
